@@ -1,0 +1,373 @@
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    line-height: 1.6;
+}
+
+/* Navbar y Logo */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar .logo a:hover {
+    color: orange;
+}
+
+/* Navegación principal */
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar nav ul li a.active,
+.navbar nav ul li a:hover {
+    color: orange;
+    text-decoration: underline;
+}
+
+/* Control de secciones */
+.section {
+    display: none;
+    min-height: 100vh;
+    background-color: black;
+    padding-top: 80px; /* Espacio para el navbar fijo */
+}
+
+.section.active {
+    display: block;
+}
+
+/* Sección Hero */
+.hero {
+    padding: 150px 50px;
+    text-align: left;
+}
+
+.hero .hello {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: orange;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin: 10px 0;
+}
+
+.hero h1 span {
+    color: orange;
+    font-weight: bold;
+}
+
+.hero .subtitle {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    font-weight: lighter;
+}
+
+/* Sección About */
+.about {
+    padding: 100px 50px;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.profile-image {
+    flex: 1;
+    max-width: 300px;
+}
+
+.profile-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.info-content {
+    flex: 1;
+    text-align: left;
+}
+
+.about-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    color: #888;
+}
+
+/* Información personal */
+.personal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.info-item {
+    display: flex;
+    gap: 10px;
+    padding-bottom: 5px;
+}
+
+.info-item .label {
+    font-weight: bold;
+    color: white;
+    min-width: 120px;
+}
+
+.info-item .value {
+    color: #888;
+}
+
+/* Botón de descarga */
+.download-btn {
+    display: inline-block;
+    background-color: orange;
+    color: black;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Sección Skills */
+.skills {
+    padding: 100px 50px;
+    text-align: center;
+}
+
+.skills h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.skills h3 {
+    font-size: 1.5rem;
+    margin: 50px 0 40px;
+    color: orange;
+    text-align: left;
+}
+
+.skills-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.skill-item {
+    position: relative;
+    width: 80px;
+    height: 100px;
+    transition: transform 0.3s ease;
+}
+
+.skill-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.skill-item:hover {
+    transform: scale(1.1);
+}
+
+.skill-item::after {
+    content: attr(data-language);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9rem;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease, bottom 0.3s ease;
+}
+
+.skill-item:hover::after {
+    bottom: -10px;
+    opacity: 1;
+}
+
+/* Menú hamburguesa */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 2px 0;
+    transition: 0.4s;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+
+    .skill-item::after {
+        content: attr(data-language);
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.9rem;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 5px;
+        opacity: 0;
+        transition: opacity 0.3s ease, bottom 0.3s ease;
+    }
+    
+    .skill-item:hover::after {
+        bottom: -10px;
+        opacity: 1;
+    }
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: black;
+        width: 100%;
+        height: calc(100vh - 70px);
+        transition: 0.3s;
+        padding: 20px 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .navbar nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .navbar nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar nav ul li a {
+        display: block;
+        padding: 10px;
+    }
+
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* Ajustes responsive para About */
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-image {
+        margin: 0 auto;
+    }
+
+    /* Ajustes responsive para Hero */
+    .hero {
+        padding: 100px 50px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Media query para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .navbar .logo a {
+        font-size: 1.2rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .about h2,
+    .skills h2 {
+        font-size: 2rem;
+    }
+}
